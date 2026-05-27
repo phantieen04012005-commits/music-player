@@ -68,28 +68,6 @@ header h1{
     max-width:90%;
 }
 
-/* Controls */
-
-.controls{
-    margin-top:20px;
-    display:flex;
-    justify-content:center;
-    gap:15px;
-}
-
-.controls button{
-    border:none;
-    padding:12px 20px;
-    border-radius:30px;
-    cursor:pointer;
-    font-size:15px;
-    transition:0.3s;
-}
-
-.controls button:hover{
-    transform:scale(1.05);
-}
-
 /* Search */
 
 .search-box{
@@ -118,7 +96,7 @@ header h1{
     font-size:28px;
 }
 
-/* Music List */
+/* Music list */
 
 .music-list{
     display:flex;
@@ -161,11 +139,4 @@ header h1{
     text-align:center;
     color:#aaa;
     padding:0 10px 20px;
-}
-
-/* Active song */
-
-.card.active{
-    border:3px solid #1DB954;
-    transform:scale(1.04);
 }
