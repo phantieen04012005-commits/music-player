@@ -177,21 +177,3 @@ search.addEventListener(
 );
 
 loadSong(currentSong);
-.controls{
-    margin-top:20px;
-    display:flex;
-    gap:15px;
-    justify-content:center;
-}
-
-.controls button{
-    border:none;
-    padding:12px 20px;
-    border-radius:30px;
-    cursor:pointer;
-    font-size:15px;
-}
-
-.controls button:hover{
-    transform:scale(1.05);
-}
