@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melody Stream</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+
+        <h1>🎧 Melody Stream</h1>
+
+        <div class="top-info">
+            <span>🎵 120+ bài hát</span>
+            <span>🔥 Trending Music</span>
+            <span>💿 Chill Playlist</span>
+        </div>
+
+    </header>
+
+    <!-- Player -->
+    <section class="main-player">
+
+        <img
+            id="cover"
+            src="https://picsum.photos/400?1"
+            alt=""
+        >
+
+        <h2 id="song-title">
+            Lofi Chill
+        </h2>
+
+        <p id="artist-name">
+            Music Demo
+        </p>
+
+        <audio
+            id="audio-player"
+            controls
+        ></audio>
+
+        <!-- Controls -->
+        <div class="controls">
+
+            <button onclick="previousSong()">
+                ⏮ Previous
+            </button>
+
+            <button onclick="nextSong()">
+                ⏭ Next
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- Search -->
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="search"
+            placeholder="Tìm kiếm bài hát..."
+        >
+
+    </div>
+
+    <section class="section-title">
+        <h2>Popular Songs</h2>
+    </section>
+
+    <main class="music-list">
+
+        <div class="card active">
+            <img src="https://picsum.photos/300?1">
+            <h3>Lofi Chill</h3>
+            <p>Relax & Chill Music</p>
+        </div>
+
+        <div class="card">
+            <img src="https://picsum.photos/300?2">
+            <h3>Night Vibes</h3>
+            <p>Night Driving Playlist</p>
+        </div>
+
+        <div class="card">
+            <img src="https://picsum.photos/300?3">
+            <h3>Relax Beat</h3>
+            <p>Peaceful Background Music</p>
+        </div>
+
+        <div class="card">
+            <img src="https://picsum.photos/300?4">
+            <h3>Deep Focus</h3>
+            <p>Study & Coding Music</p>
+        </div>
+
+        <div class="card">
+            <img src="https://picsum.photos/300?5">
+            <h3>Summer Chill</h3>
+            <p>Weekend Relax Music</p>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
