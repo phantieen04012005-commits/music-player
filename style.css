@@ -140,3 +140,23 @@ header h1{
     color:#aaa;
     padding:0 10px 20px;
 }
+/* Hiệu ứng xoay tròn */
+@keyframes rotateDisk {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Thao tác bo tròn ảnh bìa giống cái đĩa nhạc */
+#cover {
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+/* Khi có class .play-animation, đĩa sẽ xoay */
+.play-animation {
+    animation: rotateDisk 10s linear infinite;
+}

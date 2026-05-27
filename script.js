@@ -1,179 +1,81 @@
+// 1. Khởi tạo danh sách bài hát (Bạn có thể đổi link nhạc .mp3 bằng bài hát bạn thích nhé)
 const songs = [
-
-{
-    title:"Lofi Chill",
-    artist:"Music Demo",
-    music:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-    image:"https://picsum.photos/400?1"
-},
-
-{
-    title:"Night Vibes",
-    artist:"Music Demo",
-    music:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
-    image:"https://picsum.photos/400?2"
-},
-
-{
-    title:"Relax Beat",
-    artist:"Music Demo",
-    music:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
-    image:"https://picsum.photos/400?3"
-},
-
-{
-    title:"Deep Focus",
-    artist:"Study Playlist",
-    music:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
-    image:"https://picsum.photos/400?4"
-},
-
-{
-    title:"Summer Chill",
-    artist:"Chill Playlist",
-    music:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
-    image:"https://picsum.photos/400?5"
-}
-
+    {
+        title: "Lofi Chill",
+        artist: "Relax & Chill Music",
+        cover: "https://picsum.photos/400?1",
+        url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+    },
+    {
+        title: "Night Vibes",
+        artist: "Night Driving Playlist",
+        cover: "https://picsum.photos/400?2",
+        url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+    },
+    {
+        title: "Relax Beat",
+        artist: "Peaceful Background Music",
+        cover: "https://picsum.photos/400?3",
+        url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
+    },
+    {
+        title: "Deep Focus",
+        artist: "Study & Coding Music",
+        cover: "https://picsum.photos/400?4",
+        url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"
+    },
+    {
+        title: "Summer Chill",
+        artist: "Weekend Relax Music",
+        cover: "https://picsum.photos/400?5",
+        url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3"
+    }
 ];
 
-let currentSong = 0;
+let currentSongIndex = 0; // Bài hát bắt đầu (Bài đầu tiên)
 
-const player =
-document.getElementById(
-    "audio-player"
-);
+// 2. Lấy các phần tử HTML ra để xử lý
+const audioPlayer = document.getElementById('audio-player');
+const songTitle = document.getElementById('song-title');
+const artistName = document.getElementById('artist-name');
+const coverImg = document.getElementById('cover');
 
-function loadSong(index){
-
-    document.getElementById(
-        "song-title"
-    ).innerText =
-    songs[index].title;
-
-    document.getElementById(
-        "artist-name"
-    ).innerText =
-    songs[index].artist;
-
-    document.getElementById(
-        "cover"
-    ).src =
-    songs[index].image;
-
-    player.src =
-    songs[index].music;
-
-    document
-    .querySelectorAll(".card")
-    .forEach(function(card){
-        card.classList.remove(
-            "active"
-        );
-    });
-
-    document
-    .querySelectorAll(".card")
-    [index]
-    .classList.add(
-        "active"
-    );
+// 3. Hàm tải thông tin bài hát lên trình phát
+function loadSong(song) {
+    songTitle.innerText = song.title;
+    artistName.innerText = song.artist;
+    coverImg.src = song.cover;
+    audioPlayer.src = song.url;
 }
 
-function nextSong(){
-
-    currentSong++;
-
-    if(
-        currentSong >=
-        songs.length
-    ){
-        currentSong = 0;
+// 4. Hàm xử lý nút bấm Next (Bài tiếp theo)
+function nextSong() {
+    currentSongIndex++;
+    if (currentSongIndex > songs.length - 1) {
+        currentSongIndex = 0; // Nếu hết danh sách thì quay lại bài đầu
     }
-
-    loadSong(currentSong);
-
-    player.play();
+    loadSong(songs[currentSongIndex]);
+    audioPlayer.play();
 }
 
-function previousSong(){
-
-    currentSong--;
-
-    if(currentSong < 0){
-        currentSong =
-        songs.length - 1;
+// 5. Hàm xử lý nút bấm Previous (Bài trước đó)
+function previousSong() {
+    currentSongIndex--;
+    if (currentSongIndex < 0) {
+        currentSongIndex = songs.length - 1; // Nếu lùi quá bài đầu thì xuống bài cuối
     }
-
-    loadSong(currentSong);
-
-    player.play();
+    loadSong(songs[currentSongIndex]);
+    audioPlayer.play();
 }
 
-document
-.querySelectorAll(".card")
-.forEach(function(card,index){
-
-    card.addEventListener(
-        "click",
-        function(){
-
-            currentSong =
-            index;
-
-            loadSong(
-                currentSong
-            );
-
-            player.play();
-
-        }
-    );
+// 6. Xử lý hiệu ứng xoay đĩa nhạc khi bấm Play / Pause
+audioPlayer.addEventListener('play', () => {
+    coverImg.classList.add('play-animation');
 });
 
-/* Search */
+audioPlayer.addEventListener('pause', () => {
+    coverImg.classList.remove('play-animation');
+});
 
-const search =
-document.getElementById(
-    "search"
-);
-
-search.addEventListener(
-    "keyup",
-    function(){
-
-        const keyword =
-        search.value
-        .toLowerCase();
-
-        const cards =
-        document.querySelectorAll(
-            ".card"
-        );
-
-        cards.forEach(
-            function(card){
-
-                const text =
-                card.innerText
-                .toLowerCase();
-
-                if(
-                    text.includes(
-                        keyword
-                    )
-                ){
-                    card.style.display =
-                    "block";
-                }
-                else{
-                    card.style.display =
-                    "none";
-                }
-
-            }
-        );
-    }
-);
-
-loadSong(currentSong);
+// Chạy bài hát đầu tiên ngay khi tải trang xong
+loadSong(songs[currentSongIndex]);
