@@ -10,6 +10,7 @@
 
 <body>
 
+    <!-- Header -->
     <header>
 
         <h1>🎧 Melody Stream</h1>
@@ -42,20 +43,8 @@
         <audio
             id="audio-player"
             controls
-        ></audio>
-
-        <!-- Controls -->
-        <div class="controls">
-
-            <button onclick="previousSong()">
-                ⏮ Previous
-            </button>
-
-            <button onclick="nextSong()">
-                ⏭ Next
-            </button>
-
-        </div>
+        >
+        </audio>
 
     </section>
 
@@ -74,36 +63,106 @@
         <h2>Popular Songs</h2>
     </section>
 
+    <!-- Danh sách nhạc -->
     <main class="music-list">
 
-        <div class="card active">
+        <div
+            class="card active"
+            data-name="lofi chill"
+            onclick="changeSong(
+            this,
+            'Lofi Chill',
+            'Music Demo',
+            'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
+            'https://picsum.photos/400?1'
+        )">
+
             <img src="https://picsum.photos/300?1">
+
             <h3>Lofi Chill</h3>
+
             <p>Relax & Chill Music</p>
+
         </div>
 
-        <div class="card">
+
+        <div
+            class="card"
+            data-name="night vibes"
+            onclick="changeSong(
+            this,
+            'Night Vibes',
+            'Music Demo',
+            'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
+            'https://picsum.photos/400?2'
+        )">
+
             <img src="https://picsum.photos/300?2">
+
             <h3>Night Vibes</h3>
+
             <p>Night Driving Playlist</p>
+
         </div>
 
-        <div class="card">
+
+        <div
+            class="card"
+            data-name="relax beat"
+            onclick="changeSong(
+            this,
+            'Relax Beat',
+            'Music Demo',
+            'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3',
+            'https://picsum.photos/400?3'
+        )">
+
             <img src="https://picsum.photos/300?3">
+
             <h3>Relax Beat</h3>
+
             <p>Peaceful Background Music</p>
+
         </div>
 
-        <div class="card">
+
+        <div
+            class="card"
+            data-name="deep focus"
+            onclick="changeSong(
+            this,
+            'Deep Focus',
+            'Study Playlist',
+            'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3',
+            'https://picsum.photos/400?4'
+        )">
+
             <img src="https://picsum.photos/300?4">
+
             <h3>Deep Focus</h3>
+
             <p>Study & Coding Music</p>
+
         </div>
 
-        <div class="card">
+
+        <div
+            class="card"
+            data-name="summer chill"
+            onclick="changeSong(
+            this,
+            'Summer Chill',
+            'Chill Playlist',
+            'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3',
+            'https://picsum.photos/400?5'
+        )">
+
             <img src="https://picsum.photos/300?5">
+
             <h3>Summer Chill</h3>
+
             <p>Weekend Relax Music</p>
+
         </div>
 
     </main>
